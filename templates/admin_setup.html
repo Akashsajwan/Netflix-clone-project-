@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin - Setup</title>
+  <link rel="stylesheet" href="/admin.css">
+</head>
+<body>
+  <div class="admin-page">
+    <div class="overlay"></div>
+
+    <header class="admin-header">
+      <a class="brand" href="/" aria-label="Go to home">
+        <img src="/assests/logo.svg" alt="Netflix logo">
+      </a>
+    </header>
+
+    <main class="admin-main">
+      <section class="admin-card">
+        <h1>Create First Admin</h1>
+        <p class="admin-hint">This page is available only when there are no admins yet.</p>
+        {% if error %}
+          <p class="admin-error" role="alert">{{ error }}</p>
+        {% endif %}
+        <form method="post" action="/admin/setup" class="admin-form">
+          <label>
+            <span>Email</span>
+            <input name="email" type="email" autocomplete="username" required>
+          </label>
+          <label>
+            <span>Password</span>
+            <input name="password" type="password" autocomplete="new-password" minlength="6" required>
+          </label>
+          <button type="submit">Create Admin</button>
+        </form>
+        <p class="admin-hint"><a href="/admin/signin">Back to admin sign in</a></p>
+      </section>
+    </main>
+  </div>
+</body>
+</html>
+

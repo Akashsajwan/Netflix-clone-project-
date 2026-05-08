@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Netflix - Browse</title>
+    <link rel="stylesheet" href="browse.css">
+</head>
+<body>
+    <header class="browse-header">
+        <img src="./assests/logo.svg" alt="Netflix logo" class="logo">
+        <div class="header-right">
+            <span id="welcome-text"></span>
+            <button id="logout-btn" type="button">Logout</button>
+        </div>
+    </header>
+
+    <main class="browse-main">
+        <section class="hero">
+            <h1>Movies &amp; TV</h1>
+            <p>Watch a full movie when it’s available in our licensed demo catalog, otherwise enjoy the trailer.</p>
+        </section>
+
+        <section class="search-section" aria-label="Search">
+            <div class="search-box">
+                <input id="movie-search" type="search" autocomplete="off" placeholder="Titles, genres, years…" enterkeyhint="search">
+                <div id="search-suggestions" class="search-suggestions hidden" role="listbox" aria-label="Search suggestions"></div>
+            </div>
+            <button id="search-btn" type="button">Search</button>
+        </section>
+
+        <section class="categories-section">
+            <h2 class="section-heading">Categories</h2>
+            <div id="category-list" class="category-list" role="tablist" aria-label="Categories"></div>
+        </section>
+
+        <section class="filters-section" aria-label="Language and region filters">
+            <h2 class="section-heading">Language &amp; Region</h2>
+            <div id="language-filter-list" class="language-filter-list" role="tablist" aria-label="Language filters"></div>
+        </section>
+
+        <p id="movies-status" class="status" aria-live="polite">Loading titles…</p>
+
+        <section id="recommend-section" class="row-section hidden">
+            <h2 class="row-heading">Recommended for you</h2>
+            <p id="recommend-status" class="row-sub status"></p>
+            <div id="recommend-scroll" class="row-scroll" data-row></div>
+        </section>
+
+        <div id="genre-rows" class="genre-rows" aria-label="Browse by genre"></div>
+
+        <section id="catalog-section" class="catalog-section hidden">
+            <h2 id="catalog-heading" class="row-heading">Explore</h2>
+            <div id="movies-grid" class="movies-grid"></div>
+        </section>
+        <div id="infinite-sentinel" class="infinite-sentinel" aria-hidden="true"></div>
+    </main>
+
+    <footer class="browse-footer">
+        <p>Questions? Call 000-800-919-1743</p>
+        <div class="footer-links">
+            <a href="#">FAQ</a>
+            <a href="#">Help Center</a>
+            <a href="#">Terms of Use</a>
+            <a href="#">Privacy</a>
+            <a href="#">Cookie Preferences</a>
+            <a href="#">Corporate Information</a>
+        </div>
+        <p class="copyright">Netflix Clone Experience</p>
+    </footer>
+
+    <div id="player-modal" class="player-modal hidden" role="dialog" aria-modal="true" aria-label="Video player">
+        <div class="player-backdrop" id="player-backdrop"></div>
+        <div class="player-panel">
+            <button id="close-player-btn" class="close-player-btn" type="button" aria-label="Close player">✕</button>
+            <h3 id="player-title"></h3>
+            <p id="player-status" class="player-status" aria-live="polite"></p>
+            <div id="plan-cta" class="plan-cta hidden">
+                <a id="go-plan-btn" class="go-plan-btn" href="/plan">See plans</a>
+            </div>
+            <div id="episode-controls" class="episode-controls hidden">
+                <label for="season-select">Season</label>
+                <select id="season-select"></select>
+                <label for="episode-select">Episode</label>
+                <select id="episode-select"></select>
+                <button id="play-episode-btn" type="button">Play Episode</button>
+            </div>
+            <div class="player-frame-wrap">
+                <video
+                    id="player-video"
+                    class="player-video hidden"
+                    controls
+                    preload="metadata"
+                    playsinline
+                ></video>
+                <iframe
+                    id="player-iframe"
+                    class="player-iframe"
+                    title="Video player"
+                    allowfullscreen
+                    allow="autoplay; fullscreen; picture-in-picture; encrypted-media; gyroscope; accelerometer"
+                ></iframe>
+            </div>
+        </div>
+    </div>
+
+    <script src="scripts/browse.js"></script>
+</body>
+</html>

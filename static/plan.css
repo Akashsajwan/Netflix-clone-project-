@@ -1,0 +1,139 @@
+*{ margin:0; padding:0; box-sizing:border-box; }
+
+body{
+  font-family: Arial, Helvetica, sans-serif;
+  color:#fff;
+  background:#000;
+}
+
+.plan-page{
+  min-height: 100vh;
+  background: url("/assests/background.jpg") center center / cover no-repeat;
+  position: relative;
+}
+
+.overlay{
+  position:absolute;
+  inset:0;
+  background: rgba(0,0,0,0.65);
+}
+
+.plan-header{
+  position: relative;
+  z-index: 2;
+  display:flex;
+  justify-content: space-between;
+  align-items:center;
+  padding: 22px 10%;
+}
+
+.logo{ width: 170px; }
+
+.back-link{
+  color:#fff;
+  text-decoration:none;
+  font-weight:800;
+  background: rgba(45,45,45,0.75);
+  border: 1px solid rgba(255,255,255,0.12);
+  padding: 8px 14px;
+  border-radius: 999px;
+}
+
+.back-link:hover{ background: rgba(77,77,77,0.85); }
+
+.plan-main{
+  position: relative;
+  z-index: 2;
+  display:flex;
+  justify-content:center;
+  padding: 10px 16px 48px;
+}
+
+.plan-card{
+  width:100%;
+  max-width: 900px;
+  padding: 36px 46px;
+  border-radius: 6px;
+  background: rgba(0,0,0,0.75);
+  border: 1px solid rgba(255,255,255,0.08);
+}
+
+.plan-card h1{
+  font-size: 32px;
+  margin-bottom: 10px;
+}
+
+.sub{
+  color:#b3b3b3;
+  margin-bottom: 18px;
+}
+
+.plans-grid{
+  display:grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.plan-tile{
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 10px;
+  padding: 14px;
+  background: rgba(17,17,17,0.75);
+  display:flex;
+  flex-direction: column;
+  gap: 10px;
+  min-height: 200px;
+}
+
+.plan-name{
+  font-size: 16px;
+  font-weight: 900;
+}
+
+.plan-price{
+  font-size: 18px;
+  font-weight: 900;
+  color:#fff;
+}
+
+.plan-desc{
+  color:#cfcfcf;
+  font-size: 13px;
+  line-height: 1.45;
+  flex: 1;
+}
+
+.plan-btn{
+  border: none;
+  border-radius: 4px;
+  padding: 12px 12px;
+  font-size: 14px;
+  font-weight: 900;
+  color:#fff;
+  background:#e50914;
+  cursor:pointer;
+}
+
+.plan-btn.secondary{
+  background: rgba(128,128,128,0.35);
+}
+
+.plan-btn:hover{ background:#f6121d; }
+.plan-btn.secondary:hover{ background: rgba(128,128,128,0.5); }
+
+.msg{
+  margin-top: 14px;
+  min-height: 18px;
+  color:#fff;
+}
+
+@media (max-width: 920px){
+  .plans-grid{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (max-width: 560px){
+  .logo{ width: 120px; }
+  .plan-card{ padding: 28px 20px; }
+  .plans-grid{ grid-template-columns: 1fr; }
+}
+

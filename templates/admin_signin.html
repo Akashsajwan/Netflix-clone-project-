@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin - Sign In</title>
+  <link rel="stylesheet" href="/admin.css">
+</head>
+<body>
+  <div class="admin-page">
+    <div class="overlay"></div>
+
+    <header class="admin-header">
+      <a class="brand" href="/" aria-label="Go to home">
+        <img src="/assests/logo.svg" alt="Netflix logo">
+      </a>
+    </header>
+
+    <main class="admin-main">
+      <section class="admin-card">
+        <h1>Admin Sign In</h1>
+        {% if error %}
+          <p class="admin-error" role="alert">{{ error }}</p>
+        {% endif %}
+        <form method="post" action="/admin/signin" class="admin-form">
+          <label>
+            <span>Email</span>
+            <input name="email" type="email" autocomplete="username" required>
+          </label>
+          <label>
+            <span>Password</span>
+            <input name="password" type="password" autocomplete="current-password" required>
+          </label>
+          <button type="submit">Sign In</button>
+        </form>
+
+        {% if first_time_setup %}
+          <p class="admin-hint">
+            No admin exists yet. <a href="/admin/setup">Create the first admin</a>.
+          </p>
+        {% endif %}
+      </section>
+    </main>
+  </div>
+</body>
+</html>
+

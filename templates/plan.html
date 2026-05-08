@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Netflix - Plans</title>
+  <link rel="stylesheet" href="plan.css">
+</head>
+<body>
+  <div class="plan-page">
+    <div class="overlay"></div>
+    <header class="plan-header">
+      <a href="/browse" aria-label="Back to browse">
+        <img src="/assests/logo.svg" alt="Netflix logo" class="logo">
+      </a>
+      <a class="back-link" href="/browse">Back</a>
+    </header>
+
+    <main class="plan-main">
+      <section class="plan-card">
+        <h1>Choose your plan</h1>
+        <p class="sub" id="current-plan">Loading…</p>
+        <div class="plans-grid" id="plans-grid"></div>
+        <p class="msg" id="plan-message" aria-live="polite"></p>
+      </section>
+    </main>
+  </div>
+
+  <script src="scripts/plan.js"></script>
+</body>
+</html>
+

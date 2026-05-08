@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin - Dashboard</title>
+  <link rel="stylesheet" href="/admin.css">
+</head>
+<body>
+  <div class="admin-page plain">
+    <header class="admin-header">
+      <a class="brand" href="/browse" aria-label="Go to browse">
+        <img src="/assests/logo.svg" alt="Netflix logo">
+      </a>
+      <form method="post" action="/admin/signout">
+        <button class="ghost" type="submit">Sign out</button>
+      </form>
+    </header>
+
+    <main class="admin-main wide">
+      <section class="admin-card">
+        <h1>Admin Dashboard</h1>
+
+      <div class="stats">
+        <div class="stat">
+          <div class="stat-label">Active users</div>
+          <div class="stat-value">{{ active.total }}</div>
+        </div>
+        <div class="stat">
+          <div class="stat-label">Premium</div>
+          <div class="stat-value">{{ active.premium }}</div>
+        </div>
+        <div class="stat">
+          <div class="stat-label">Free</div>
+          <div class="stat-value">{{ active.free }}</div>
+        </div>
+      </div>
+
+      <p class="admin-hint">“Active” means the user opened `/browse` in the last 15 minutes.</p>
+
+      <h2>Active sessions</h2>
+      <div class="table-wrap">
+        <table class="admin-table">
+          <thead>
+            <tr>
+              <th>Email</th>
+              <th>Plan</th>
+              <th>Last seen (epoch)</th>
+              <th>User ID</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for s in active.sessions %}
+              <tr>
+                <td>{{ s.email }}</td>
+                <td><span class="pill {{ 'premium' if s.plan == 'premium' else 'free' }}">{{ s.plan }}</span></td>
+                <td>{{ s.last_seen }}</td>
+                <td>{{ s.user_id }}</td>
+              </tr>
+            {% endfor %}
+            {% if active.sessions|length == 0 %}
+              <tr><td colspan="4" class="muted">No active users right now.</td></tr>
+            {% endif %}
+          </tbody>
+        </table>
+      </div>
+      </section>
+
+      <section class="admin-card">
+        <h2>Admins</h2>
+      <div class="table-wrap">
+        <table class="admin-table">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Email</th>
+              <th>Created</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for a in admins %}
+              <tr>
+                <td>{{ a.id }}</td>
+                <td>{{ a.email }}</td>
+                <td>{{ a.created_at }}</td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Add new admin</h3>
+      <form method="post" action="/admin/add-admin" class="admin-form inline">
+        <label>
+          <span>Email</span>
+          <input name="email" type="email" autocomplete="off" required>
+        </label>
+        <label>
+          <span>Password</span>
+          <input name="password" type="password" minlength="6" required>
+        </label>
+        <button type="submit">Add admin</button>
+      </form>
+      <p class="admin-hint">Only an existing admin can add another admin.</p>
+      </section>
+    </main>
+  </div>
+</body>
+</html>
+

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Netflix - Sign Up</title>
+    <link rel="stylesheet" href="signup.css">
+</head>
+<body>
+    <div class="signup-page">
+        <div class="overlay"></div>
+
+        <header class="signup-header">
+            <a href="/" aria-label="Go to home">
+                <img src="./assests/logo.svg" alt="Netflix logo">
+            </a>
+            <a class="signin-link" href="/signin">Sign In</a>
+        </header>
+
+        <main class="signup-main">
+            <section class="signup-card">
+                <p class="step">STEP 1 OF 3</p>
+                <h1>Create a password to start your membership</h1>
+                <p class="subtitle">Just a few more steps and you're done!</p>
+                <p class="subtitle">We hate paperwork, too.</p>
+
+                <form class="signup-form">
+                    <input type="email" placeholder="Email" required>
+                    <input type="password" placeholder="Add a password" required>
+                    <input type="text" placeholder="Full name" required>
+                    <select id="plan-select" required>
+                        <option value="free">Free Plan (limited catalog)</option>
+                        <option value="premium">Premium Plan (full catalog)</option>
+                    </select>
+                    <button type="submit">Next</button>
+                </form>
+                <p id="signup-message" aria-live="polite"></p>
+            </section>
+        </main>
+    </div>
+    <script src="scripts/signup.js"></script>
+</body>
+</html>

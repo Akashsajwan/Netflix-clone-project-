@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Netflix - Sign In</title>
+    <link rel="stylesheet" href="signin.css">
+</head>
+<body>
+    <div class="signin-page">
+        <div class="overlay"></div>
+
+        <header class="signin-header">
+            <a href="/" aria-label="Go to home">
+                <img src="./assests/logo.svg" alt="Netflix logo">
+            </a>
+        </header>
+
+        <main class="signin-main">
+            <section class="signin-card">
+                <h1>Sign In</h1>
+                <form class="signin-form">
+                    <input type="text" placeholder="Email or mobile number" required>
+                    <input type="password" placeholder="Password" required>
+                    <button type="submit" class="signin-btn">Sign In</button>
+                    <div class="divider">OR</div>
+                    <button type="button" class="code-btn">Use a sign-in code</button>
+                </form>
+                <p id="signin-message" aria-live="polite"></p>
+
+                <a href="#" class="forgot-link">Forgot password?</a>
+
+                <label class="remember">
+                    <input type="checkbox">
+                    Remember me
+                </label>
+
+                <p class="signup-text">
+                    New to Netflix?
+                    <a href="/signup">Sign up now.</a>
+                </p>
+
+                <p class="disclaimer">
+                    This page is protected by Google reCAPTCHA to ensure you are not a bot.
+                    <a href="#">Learn more.</a>
+                </p>
+            </section>
+        </main>
+
+        <footer class="signin-footer">
+            <p>Questions? Call <a href="#">000-800-919-1743</a></p>
+            <div class="footer-links">
+                <a href="#">FAQ</a>
+                <a href="#">Help Center</a>
+                <a href="#">Terms of Use</a>
+                <a href="#">Privacy</a>
+                <a href="#">Cookie Preferences</a>
+                <a href="#">Corporate Information</a>
+            </div>
+        </footer>
+    </div>
+    <script src="scripts/signin.js"></script>
+</body>
+</html>
